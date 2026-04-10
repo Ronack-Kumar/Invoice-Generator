@@ -1,0 +1,68 @@
+# ── Compiled Java classes ──
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# ── Build output directories ──
+target/
+classes/
+out/
+build/
+
+# ── Maven ──
+.mvn/
+mvn-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+# ── Generated invoice output files ──
+output/
+*.txt
+!README*.md
+!QUICKSTART.md
+!USER_INPUT_GUIDE.md
+
+# ── IDE files ──
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# NetBeans
+nbproject/
+nbactions.xml
+
+# ── OS files ──
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Logs ──
+*.log
+logs/
+
+# ── Temp / backup files ──
+*.tmp
+*.bak
+*.swp
+*~
