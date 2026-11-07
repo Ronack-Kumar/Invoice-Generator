@@ -1,16 +1,44 @@
-# React + Vite
+# Invoice Generator Web UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React interface for entering invoice details, previewing the result, and downloading PDF or Excel files. This frontend is independent of the repository's Java command-line application.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Company and customer details, invoice number/date, line items, tax rate, and notes.
+- Automatic subtotal, tax, and total calculations.
+- A live invoice preview alongside the input form.
+- PDF export through `html2pdf.js`, using an A4 portrait configuration.
+- Excel export through SheetJS `xlsx`, including the invoice details, items, and totals.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19, Vite 8, `html2pdf.js`, SheetJS `xlsx`, and Lucide React icons. The source is JavaScript/JSX.
 
-## Expanding the ESLint configuration
+## Run locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Use a Node.js version supported by Vite 8. From this directory:
+
+```bash
+npm install
+npm run dev
+```
+
+Open the URL printed by Vite. A Java server is not required.
+
+## Scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create the frontend production build |
+| `npm run preview` | Preview an existing production build |
+| `npm run lint` | Run ESLint |
+
+## Source layout
+
+- [`src/App.jsx`](src/App.jsx): invoice state, calculation functions, and PDF/Excel export handlers.
+- [`src/components/InvoiceForm.jsx`](src/components/InvoiceForm.jsx): invoice inputs and line-item controls.
+- [`src/components/InvoicePreview.jsx`](src/components/InvoicePreview.jsx): invoice rendering used by the PDF exporter.
+- [`vite.config.js`](vite.config.js): Vite configuration.
+
+The Java CLI uses Apache POI for Excel output; this web application uses browser-side libraries. See the [repository README](../README.md) for the CLI setup.

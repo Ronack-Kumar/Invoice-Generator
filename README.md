@@ -1,6 +1,29 @@
 # Invoice Generator
 
-A Java-based invoice generator that accepts user inputs and generates professional invoices in both text and Excel formats.
+An invoice generator with two independent interfaces: a Java command-line application for text and Excel invoices, and a React web application with PDF and Excel export.
+
+## Interfaces and exports
+
+| Interface | Stack | Output formats |
+| --- | --- | --- |
+| Java CLI | Java 11, Maven, Apache POI | `.txt` and `.xlsx` |
+| Browser app in [`web-ui/`](web-ui/) | React 19, Vite 8, `html2pdf.js`, SheetJS `xlsx` | `.pdf` and `.xlsx` |
+
+The web application exports files in the browser and does not require the Java CLI to be running. PDF export uses **`html2pdf.js`**, not Apache PDFBox.
+
+### Start the web application
+
+From the repository root, with a Node.js version supported by Vite 8 installed:
+
+```bash
+cd web-ui
+npm install
+npm run dev
+```
+
+Open the URL printed by Vite. Enter company/customer information and line items, inspect the invoice preview, then choose **Export PDF** or **Export Excel**. For frontend scripts and implementation details, see the [web application README](web-ui/README.md).
+
+The Java-specific features and instructions below describe the command-line interfaces.
 
 ## Features
 
